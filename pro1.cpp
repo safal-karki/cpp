@@ -1,23 +1,49 @@
-#include<stdio.h>
-//check if given number is even or odd
 
-int check(int);
+
+#include <stdio.h>
+#include<string.h>
+
+
+void f(){
+	int fact[100];
+	fact[0] = 1 , fact[1] = 1;
+	for (int i = 2 ; i < 100 ; i++){
+		fact[i] = i * fact[i - 1];
+	}
+	int sum = 0 ;
+	for (int i = 3 ; i <= 5 ; i++){
+		sum += fact[i] / i;
+	}
+	printf("%d\n",sum);
+}
+
+void test(){
+	int n ; scanf("%d" , &n);
+	int str[100];
+	int i = 0;
+	while(n > 0){
+		if(n % 2 == 0){
+			str[i] = 0;
+			printf("%c\n", '0');
+			i++;
+			n /= 2;
+		}
+		else{
+			str[i] = 1;
+			printf("%d\n",1);
+			i++;
+			n /=2;
+		}
+	}
+	for (int j =i-1;j>=0;j--){
+		printf("%d" , str[j]);
+	}
+}
+
 
 int main()
 {
-	int a,correct;
-	printf("Enter values:\n");
-	scanf("%d",&a);
-	correct =check(a);
-	return a;
-}
-
-int check(int z)
-{
-	if(z%2==0)
-		printf("%d is even. \n",z );
-	else
-		printf("%d is odd. \n", z);
-	return 0;
+	test();
 
 }
+
